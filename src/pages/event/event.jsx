@@ -4,12 +4,14 @@ import eventImg from "../../assets/event-img.png";
 import icon1 from "../../assets/icon1.png";
 import icon2 from "../../assets/icon2.png";
 
-const EventPage = (props) => (
+const EventPage = ({ eventCards }) => (
     <section className={styles.section}>
         <div className={styles.container}>
             <div className={[styles.container__left, styles.boxes].join(" ")}>
                 <div className={styles.left__titles}>
-                    <h1>Birthday Bash</h1>
+                    {Object.keys(eventCards).map((item, key) => {
+                        <h1 key={key}>{item.eventName}</h1>;
+                    })}
                     <p>
                         Hosted by <strong>Elysia</strong>{" "}
                     </p>

@@ -1,31 +1,71 @@
 import React from "react";
 import styles from "./create.module.css";
 import { useRef } from "react";
+import Image_File_Input from "../../components/image_file_input/image_File_Input";
+import { useNavigate } from "react-router-dom";
 
-const CreatePage = (props) => {
+const CreatePage = ({ eventCards, editEvent }) => {
+    const navigate = useNavigate();
     const formRef = useRef();
-    const nameRef = useRef();
+    const eventNameRef = useRef();
+    const hostNameRef = useRef();
+    const startTimeRef = useRef();
+    const endTimeRef = useRef();
+    const eventPhotoRef = useRef();
 
-    const onChange = () => {};
+    const { eventName, hostName, sTime, eTime, location, img } = eventCards;
+
+    const onChange = () => {
+        const NewEvent = {
+            eventName: eventNameRef.current.value,
+            hostName: hostNameRef.current.value,
+            sTime: null,
+            eTime: null,
+            location: null,
+            img: null,
+        };
+        editEvent(NewEvent);
+        // console.log(eventNameRef.current.value);
+    };
+
+    const onFileChange = (file) => {
+        editEvent({
+            ...eventCards,
+            img: file,
+        });
+    };
     return (
         <section className={styles.section}>
             <div className={styles.container}>
                 <h1>Create your events!</h1>
                 <img src='' alt='' />
-                <form className={styles.form} ref={formRef}>
+                <form className={styles.form}>
                     <label htmlFor=''>Event name</label>
-                    <input ref={nameRef} type='text' onChange={onChange} />
-                    <label htmlFor=''>Host name</label>
-                    <input ref={nameRef} type='text' onChange={onChange} />
-                    <label htmlFor=''>Start and End time/date</label>
+                    <input ref={eventNameRef} type='text' onChange={onChange} />
+                    <label htmlFor='' ref={hostNameRef}>
+                        Host name
+                    </label>
+                    <input ref={hostNameRef} type='text' onChange={onChange} />
+                    <label htmlFor=''>Start time/date</label>
+                    <input type='time' ref={startTimeRef} onChange={onChange} />
+                    <label htmlFor=''>End time/date</label>
+                    <input type='time' ref={endTimeRef} onChange={onChange} />
                     <label htmlFor=''>Location</label>
-                    <input ref={nameRef} type='text' onChange={onChange} />
+                    <input type='text' onChange={onChange} />
                     <label htmlFor=''>Event photo</label>
                     <div className={styles.fileInput}>
-                        <input type='text' />
-                        <button>add photo on your event🎉</button>
+                        <Image_File_Input name={eventCards.img} />
+                        {/* <input type='text' />
+                        <button>add photo on your event🎉</button> */}
                     </div>
                 </form>
+                <button
+                    onClick={() => {
+                        navigate("/event");
+                    }}
+                >
+                    Submit
+                </button>
             </div>
         </section>
     );

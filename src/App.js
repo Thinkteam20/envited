@@ -8,18 +8,46 @@ import {
     BrowserRouter,
     Routes, // instead of "Switch"
     Route,
-    useLocation,
 } from "react-router-dom";
 
 const App = () => {
-    const [loading, setLoading] = useState(false);
-    useEffect(() => {}, []);
+    const [eventCards, setEventCards] = useState([
+        {
+            id: undefined,
+            eventName: undefined,
+            hostName: undefined,
+            sTime: undefined,
+            eTime: undefined,
+            location: undefined,
+            img: undefined,
+        },
+    ]);
+    const handleEdit = (newEvents) => {
+        // console.log(newEvents);
+        setEventCards((event) => {
+            const updated = { ...eventCards };
+            updated[event.id] = event;
+            return updated;
+        });
+    };
+
     return (
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Home />}></Route>
-                <Route path='/create' element={<CreatePage />}></Route>
-                <Route path='/event' element={<EventPage />}></Route>
+                <Route
+                    path='/create'
+                    element={
+                        <CreatePage
+                            eventCards={eventCards}
+                            editEvent={handleEdit}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path='/event'
+                    element={<EventPage eventCards={eventCards} />}
+                ></Route>
             </Routes>
         </BrowserRouter>
     );

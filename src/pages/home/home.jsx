@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./home.module.css";
 import homeLeftImg from "../../assets/home-img.png";
 import { useNavigate } from "react-router-dom";
 
 const Home = (props) => {
     const navigate = useNavigate();
+
     return (
         <section className={styles.section}>
             <div className={styles.container}>
