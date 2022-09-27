@@ -33,12 +33,10 @@ const Image_File_Input = memo(({ imageUploader, name, onFileChange, url }) => {
     const onChange = async (event) => {
         const fileUploaded = event.target.files[0];
         setIsLoading(true);
-        // console.log(fileUploaded);
-        // setIsLoading(true);
-        // handleUploadImg(fileUploaded);
+
         const uploaded = await imageUploader.upload(fileUploaded);
         setIsLoading(false);
-        // console.log(uploaded);
+
         onFileChange({
             name: uploaded.original_filename,
             url: uploaded.url,

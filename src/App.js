@@ -4,11 +4,7 @@ import Home from "./pages/home/home.jsx";
 import CreatePage from "./pages/create/create.jsx";
 import EventPage from "./pages/event/event.jsx";
 
-import {
-    BrowserRouter,
-    Routes, // instead of "Switch"
-    Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
     const [eventCards, setEventCards] = useState([
@@ -23,7 +19,6 @@ const App = () => {
         },
     ]);
     const handleEdit = (newEvents) => {
-        // console.log(newEvents);
         setEventCards((event) => {
             const updated = { ...eventCards };
             updated[event.id] = event;

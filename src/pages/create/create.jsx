@@ -55,8 +55,6 @@ const CreatePage = ({ eventCards, editEvent }) => {
                     <label htmlFor=''>Event photo</label>
                     <div className={styles.fileInput}>
                         <Image_File_Input name={eventCards.img} />
-                        {/* <input type='text' />
-                        <button>add photo on your event🎉</button> */}
                     </div>
                 </form>
                 <button
