@@ -1,4 +1,4 @@
-@value seconPurpleLight,genLightGrey from '../../common/colors.css';
+@value seconPurpleLight,genLightGrey,white from '../../common/colors.css';
 
 .section{
     width: 100vw;
@@ -10,16 +10,24 @@
 }
 .container{
     width: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: 600px;
     max-height: 700px;
-    background: linear-gradient(0deg, genLightGrey, genLightGrey), genLightGrey;
     border-radius: 3px;
     padding: 3em;
+    background-color: #ffffff;
 }   
+.party_img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 100px;
+    max-height: 200px;
+}
 
 .form{
     display: flex;

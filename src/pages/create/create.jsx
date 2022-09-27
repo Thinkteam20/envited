@@ -3,6 +3,7 @@ import styles from "./create.module.css";
 import { useRef } from "react";
 import Image_File_Input from "../../components/image_file_input/image_File_Input";
 import { useNavigate } from "react-router-dom";
+import partyImg from "../../assets/party.png";
 
 const CreatePage = ({ eventCards, editEvent }) => {
     const navigate = useNavigate();
@@ -37,8 +38,8 @@ const CreatePage = ({ eventCards, editEvent }) => {
     return (
         <section className={styles.section}>
             <div className={styles.container}>
+                <img src={partyImg} alt='' className={styles.party_img} />
                 <h1>Create your events!</h1>
-                <img src='' alt='' />
                 <form className={styles.form}>
                     <label htmlFor=''>Event name</label>
                     <input ref={eventNameRef} type='text' onChange={onChange} />
