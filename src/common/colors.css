@@ -1,0 +1,32 @@
+
+/* Primary Palette 
+Important text, buttons, gradients
+*/
+
+@value priViolet: #1d0943;
+@value priDeepPurple: #501FC1;
+@value priPurple: #8456EC;
+@value priPink: #E87BF8;
+
+/* Secondary Palette */
+
+@value seconPurpleDeep: #CCB6FF;
+@value seconPurpleAvg: #EDE5FF;
+@value seconPurpleLight: #F6F2FF;
+
+/* Alert colurs */
+
+@value   alertPink: #FFD7E0;
+@value  alertRed: #E61445;
+@value alertLightGreen: #D3FFE2;
+@value   alertGreen: #00805E;
+
+/* Neutrals
+    for general text and backgrounds
+*/
+@value  genBlack: #FFD7E0;
+@value  genGrey: #828282;
+@value  genLightGrey: #BDBDBD ;
+@value  genLightGrey2 :#E0E0E0;
+@value genLightGrey3: #F2F2F2;
+@value white: #BDBDBD;
